@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock UI design</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="vanilla-tilt.js"></script>
+</head>
+
+<body>
+    <div class="clock">
+        <span class="time">
+            <span id="hours" class="time_num">00</span>
+            <span>
+                <h3>HOURS</h3>
+            </span>
+        </span>
+        <span class="time">
+            <span id="minutes" class="time_num">00</span>
+            <span>
+                <h3>MINUTES</h3>
+            </span>
+        </span>
+        <span id="second" class="time">
+            <span id="seconds" class="time_num">00</span>
+            <span>
+                <h3>SECONDS</h3>
+            </span>
+        </span>
+    </div>
+
+    <script>
+        function time_num() {
+            var hours = document.getElementById("hours");
+            var minutes = document.getElementById("minutes");
+            var seconds = document.getElementById("seconds");
+
+            var h = new Date().getHours();
+            var m = new Date().getMinutes();
+            var s = new Date().getSeconds();
+
+            hours.innerHTML = h;
+            minutes.innerHTML = m;
+            seconds.innerHTML = s;
+        }
+
+        var interval = setInterval(time_num, 1000);
+    </script>
+    <script type="text/javascript" src="vanilla-tilt.js"></script>
+    <script>
+        VanillaTilt.init(document.querySelectorAll(".time"), {
+            max: 25,
+            speed: 100,
+            glare: true,
+            "max-glare": 1,
+        });
+    </script>
+</body>
+
+</html>
